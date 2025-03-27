@@ -1,0 +1,82 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.bayu {
+    grid-area: 2 / 1 / 4 / 3;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgb(130, 222, 242);
+    
+}
+
+.nabila {
+    grid-area: 2 / 4 / 4 / 6;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgb(130, 222, 242);
+}
+
+.sinta {
+    grid-area: 2 / 7 / 4 / 9;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgb(130, 222, 242);
+}
+
+.valent {
+    grid-area: 2 / 10 / 4 / 12;;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgb(130, 222, 242);
+}
+
+.kembali {
+    grid-area: 5 / 6 / 6 / 7;;
+    position: center;
+    text-align: center;
+    color: blue;
+}
+
+.gambar-alat{
+    width: 500px; height: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px 1px rgb(13, 215, 229);
+    padding: 10px;
+}
+
+.alat-h3{
+    color: rgb(46, 46, 226);
+    box-shadow: 5px 5px 2px 1px rgb(139, 233, 240);
+    padding: 10px;
+}
+
+.alat-p{
+    color: cyan;
+    background-color: rgb(9, 87, 139);
+    text-align: justify;
+    padding: 10px;
+    font-size: larger;
+    
+}
+
+.alat-h1{
+    color: rgb(6, 52, 179);
+    text-align: center;
+}
+
+body.alat{
+    background-color: rgb(82, 197, 232);
+}
+
+body.bg-home{
+    background-color: rgb(82, 197, 232);
+}
+
+body.bg-index{
+    background-color: rgb(82, 197, 232);
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Alat Musik</title>
+    <link rel="stylesheet" href="section/style-kuis.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="quiz">
+            <div class="question" id="question"></div>
+            <ul class="options" id="options">
+            </ul>
+            <button class="button" onclick="nextQuestion()">Lanjut</button>
+        </div>
+        <div id="result" class="result">
+            <p id="score"></p>
+            <button class="button" onclick="restartQuiz()">Mulai Ulang</button>
+        </div>
+        <button class="kembali">
+            <a href="index.html" class="hover:underline">Kembali ke Beranda</a>
+        </button>
+    </div>
+    <script>
+        const questions = [
+            {
+                question: "Angklung berasal dari daerah?",
+                options: ["Sumatera barat", "Jawa barat", "Bali", "Sulawesi Selatan"],
+                answer: "Jawa barat"
+            },
+            {
+                question: "Alat musik yang dimainkan dengan cara dipetik adalah?",
+                options: ["Gamelan", "Sasando", "Kolintang", "Seruling"],
+                answer: "Sasando"
+            },
+            {
+                question: "Gamelan biasanya digunakan untuk mengiringi pertunjukan?",
+                options: ["Tari Piring", "Wayang kulit", "Reog Ponorogo", "Jaipong"],
+                answer: "Wayang Kulit"
+            },
+            {
+                question: "Tifa adalah alat musik khas yang berasal dari?",
+                options: ["Kalimantan", "Maluku dan Papua", "Sulawesi", "Nusa Tenggara Timur"],
+                answer: "Maluku dan Papua"
+            },
+            {
+                question: "Sasando adalah alat musik tradisional dari daerah?",
+                options: ["Aceh", "Nusa Tenggara Timur", "Kalimantan Timur", "Jawa Tengah"],
+                answer: "Nusa Tenggara Timur"
+            },
+            {
+                question: "Kolintang adalah alat musik yang berasal dari daerah?",
+                options: ["Sulawesi Utara", "Sumatera Selatan", "Kalimantan Barat", "Bali"],
+                answer: "Sulawesi Utara"
+            },
+            {
+                question: "Saluang adalah alat musik tiup khas dari daerah?",
+                options: ["Bali", "Sumatera Barat", "Aceh", "Nusa Tenggara Barat"],
+                answer: "Sumatera Barat"
+            },
+            {
+                question: "Kendang berfungsi sebagai?",
+                options: ["Melodi utama dalam pertunjukan", "Pengiring dalam pertunjukan gamelan", "Alat musik tiup dalam upacara adat", "Instrumen tambahan dalam musik pop"],
+                answer: "pengiring dalam pertunjukan gamelan"
+            },
+            {
+                question: "Alat musik khas suku Dayak yang dimainkan dengan cara dipukul adalah?",
+                options: ["Rebab", "Gambang", "Sampe", "Garantung"],
+                answer: "Sampe"
+            },
+            {
+                question: "Seruling sering digunakan dalam musik daerah?",
+                options: ["Betawi", "Minangkabau", "Sunda", "Madura"],
+                answer: "Sunda"
+            },
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = question.question;
+            const optionsList = document.getElementById("options");
+            optionsList.innerHTML = "";
+
+            question.options.forEach(option => {
+                const li = document.createElement("li");
+                li.textContent = option;
+                li.onclick = function () { checkAnswer(option) };
+                optionsList.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (selectedOption === correctAnswer) {
+                score++;
+            }
+            nextQuestion();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("score").textContent = `Skor Anda: ${score} dari ${questions.length}`;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("quiz").style.display = "block";
+            document.getElementById("result").style.display = "none";
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>
